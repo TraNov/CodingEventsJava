@@ -85,14 +85,14 @@ public class EventsController {
     }
 
     @PostMapping("delete")
-    public String processDeleteEventsForm(@RequestParam(required = false) int[] eventIds) {
+    public String processDeleteEventsForm(@RequestParam(required = true) int[] eventIds) {
 
         if (eventIds != null) {
             for (int id : eventIds) {
                 eventRepository.deleteById(id);
             }
         }
-        return "redirect:";
+        return "redirect:/";
     }
 
     @GetMapping("detail")
